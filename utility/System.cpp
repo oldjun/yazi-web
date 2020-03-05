@@ -36,10 +36,6 @@ void System::core_dump()
     ret = getrlimit(RLIMIT_DATA, &x);
     x.rlim_cur = 768000000;
     ret = setrlimit(RLIMIT_DATA, &x);
-
-    ret = getrlimit(RLIMIT_MSGQUEUE, &x);
-    x.rlim_cur = x.rlim_max = RLIM_INFINITY;
-    ret = setrlimit(RLIMIT_MSGQUEUE, &x);
 }
 
 string System::get_root_path()

@@ -3,7 +3,7 @@
 #include "Server.h"
 #include "Request.h"
 #include "Response.h"
-using namespace yazi::http;
+using namespace yazi::server;
 
 namespace yazi {
 namespace web {

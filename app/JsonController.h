@@ -5,7 +5,7 @@ using namespace yazi::web;
 
 #include "Request.h"
 #include "Response.h"
-using namespace yazi::http;
+using namespace yazi::server;
 
 namespace yazi {
 namespace app {

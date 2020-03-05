@@ -21,8 +21,6 @@ using namespace yazi::thread;
 namespace yazi {
 namespace socket {
 
-typedef Task * (*task_creator)(Socket * socket);
-
 class SocketHandler
 {
 public:
@@ -35,17 +33,11 @@ public:
     void remove(Socket * socket);
     void handle(int max_connections);
 
-    void creator(task_creator creator)
-    {
-        m_creator = creator;
-    }
-
 private:
     EventPoller * m_epoll;
     Socket * m_server;
     ObjectPool<Socket> m_sockpool;
     Mutex m_mutex;
-    task_creator m_creator;
 };
 
 }}

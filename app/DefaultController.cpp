@@ -21,8 +21,8 @@ void DefaultController::index(const Request & req, Response & resp)
                             <title>yazi-web</title> \
                         </head> \
                         <body> \
-                            <h1>this is html page</h1> \
-                            <p>yazi-web is a lightweight c++ mvc framework</p> \
+                            <h1>default controller</h1> \
+                            <p>index action run</p> \
                         </body> \
                     </html>";
     resp.html(html);

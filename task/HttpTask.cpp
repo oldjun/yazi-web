@@ -10,8 +10,7 @@ using namespace yazi::socket;
 
 #include "Request.h"
 #include "Server.h"
-using namespace yazi::http;
-
+using namespace yazi::server;
 
 
 HttpTask::HttpTask(Socket * socket) : Task(socket)

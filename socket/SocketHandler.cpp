@@ -1,6 +1,7 @@
 #include "SocketHandler.h"
-#include "Singleton.h"
+
 #include "Logger.h"
+#include "Singleton.h"
 using namespace yazi::utility;
 
 #include "Task.h"
@@ -10,6 +11,9 @@ using namespace yazi::thread;
 
 #include "ServerSocket.h"
 using namespace yazi::socket;
+
+#include "TaskFactory.h"
+using namespace yazi::task;
 
 SocketHandler::SocketHandler()
 {
@@ -102,11 +106,8 @@ void SocketHandler::handle(int max_connections)
                 {
                     //debug("socket read event");
                     detach(socket);
-                    if (m_creator != NULL)
-                    {
-                        Task * task = m_creator(socket);
-                        Singleton<TaskDispatcher>::instance()->assign(task);
-                    }
+                    Task * task = TaskFactory::create(socket);
+                    Singleton<TaskDispatcher>::instance()->assign(task);
                 }
             }
         }
