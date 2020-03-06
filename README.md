@@ -47,7 +47,7 @@ int main()
 ```
 
 ## Controllers
-Type http://localhost/test in browser will run test controller's index method, type http://localhost/test/detail in browser will run test controller's detail method.
+Create a demo RESTful API with the TestController class, as shown below
 
 app\TestController.h
 ```c++
@@ -128,6 +128,7 @@ void TestController::detail(const Request & req, Response & resp)
     resp.html(html);
 }
 ```
+As you can see, users can use the TestController to map paths and parameters at the same time. This is a very convenient way to create a RESTful API application. After compiling all of the above source files, we get a very simple web application. This is a good start. Type http://localhost/test in browser will run test controller's index method, type http://localhost/test/detail in browser will run test controller's detail method.
 
 ## Compile & Run the project
 download the source code, cd into the yazi-server project working directory, run command make && ./main 
