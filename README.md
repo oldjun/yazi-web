@@ -45,3 +45,10 @@ int main()
     return 0;
 }
 ```
+## Compile & Run the project
+download the source code, cd into the yazi-server project working directory, run command make && ./main 
+```bash
+cd ./yazi-server
+make
+./main
+```
