@@ -45,6 +45,88 @@ int main()
     return 0;
 }
 ```
+
+## Controllers
+app\TestController.h
+```c++
+#pragma once
+
+#include "Controller.h"
+using namespace yazi::web;
+
+#include "Request.h"
+#include "Response.h"
+using namespace yazi::server;
+
+namespace yazi {
+namespace app {
+
+class TestController : public Controller
+{
+public:
+    TestController();
+    ~TestController();
+
+    static void index(const Request & req, Response & resp);
+    static void detail(const Request & req, Response & resp);
+
+protected:
+    static TestController ctrl;
+};
+
+}}
+```
+
+app\TestController.cpp
+```c++
+#include "TestController.h"
+using namespace yazi::app;
+
+TestController TestController::ctrl;
+
+TestController::TestController()
+{
+    register_handler("/test", &TestController::index);
+    register_handler("/test/detail", &TestController::detail);
+}
+
+TestController::~TestController()
+{
+}
+
+void TestController::index(const Request & req, Response & resp)
+{
+    string html =   "<!DOCTYPE html> \
+                        <html> \
+                            <head> \
+                            <meta charset=\"utf-8\"> \
+                            <title>yazi-web</title> \
+                        </head> \
+                        <body> \
+                            <h1>test controller</h1> \
+                            <p>index action run</p> \
+                        </body> \
+                    </html>";
+    resp.html(html);
+}
+
+void TestController::detail(const Request & req, Response & resp)
+{
+    string html =   "<!DOCTYPE html> \
+                        <html> \
+                            <head> \
+                            <meta charset=\"utf-8\"> \
+                            <title>yazi-web</title> \
+                        </head> \
+                        <body> \
+                            <h1>test controller</h1> \
+                            <p>detail action run</p> \
+                        </body> \
+                    </html>";
+    resp.html(html);
+}
+```
+
 ## Compile & Run the project
 download the source code, cd into the yazi-server project working directory, run command make && ./main 
 ```bash
