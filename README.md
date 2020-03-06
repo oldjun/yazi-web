@@ -47,6 +47,8 @@ int main()
 ```
 
 ## Controllers
+Type http://localhost/test in browser will run test controller's index method, type http://localhost/test/detail in browser will run test controller's detail method.
+
 app\TestController.h
 ```c++
 #pragma once
